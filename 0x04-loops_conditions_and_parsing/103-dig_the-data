@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Shell Script to group visitors to a site by http codes
+
+filename="apache-access.log"
+awk -F' ' '{ print $1, $9}' $filename | sort | uniq -c|sort -nr
