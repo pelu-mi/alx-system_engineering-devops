@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Bash script that displays "Best School" 10 times using while loop
+# On the 4th line, print "bad luck" and on the 8th, print "good luck"
+i="0"
+while [ $i -lt 10 ]
+    do
+	i=$((i + 1))
+	if (("$i" == "4")); then
+		echo "bad luck"
+	elif (("$i" == "8")); then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+done
