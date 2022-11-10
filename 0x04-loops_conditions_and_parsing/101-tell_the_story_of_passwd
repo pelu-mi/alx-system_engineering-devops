@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Bash script that tells the story of /etc/passwd using while loop
+
+file=/etc/passwd
+while IFS=':' read -r user pwd uid gid desc home shell; do
+	echo "The user $user is part of the $gid gang,"\
+	"lives in $home and rides $shell."\
+	"$uid's place is protected by the passcode $pwd,"\
+	"more info about the user here: $desc"
+done < $file
