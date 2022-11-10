@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Bash script that displays content in the current directory using for loop
+
+for eachfile in "."/*
+    do
+	echo ${eachfile#*-}
+done
