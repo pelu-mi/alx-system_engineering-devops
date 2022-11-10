@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Bash script that displays 1 - 20 using while loop
+# After the 4th line, print "bad luck from China" 
+# After the 9th, print "bad luck from Japan"
+# After the 17th, print "bad luck from Italy"
+i="1"
+while [ $i -le 20 ]
+    do
+	echo "$i"
+	case $i in
+		4)
+			echo "bad luck from China"
+			;;
+	
+		9)
+			echo "bad luck from Japan"
+			;;
+
+		17)
+			echo "bad luck from Italy"
+			;;
+	esac
+	i=$((i + 1))
+done
