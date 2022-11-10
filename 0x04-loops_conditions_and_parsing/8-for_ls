@@ -3,5 +3,5 @@
 
 for eachfile in "."/*
     do
-	echo ${eachfile#*-}
+	echo "${eachfile#*-}"
 done
