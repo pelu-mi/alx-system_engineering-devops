@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Bash script that displays content in the current directory using for loop
 
-for eachfile in "."/*
+list=$(ls)
+for eachfile in $list
     do
-	echo "${eachfile#*-}"
+	echo "$eachfile" | cut -d '-' -f 2
 done
