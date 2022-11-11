@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Print out "To infinity and beyond" infinitely and trap SIGTERM
+# printing out "I am invincible!!!" after receiving SIGTERM
+
+echo "$$" > "/var/run/myscript.pid"
+
+trap 'echo "I hate the kill command"; exit' SIGTERM
+trap 'echo "Y U no love me"' SIGINT
+trap 'rm /var/run/myscript.pid' EXIT
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
