@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Shell Script to print process pid
 
-ps -aux
+ps -auxf
