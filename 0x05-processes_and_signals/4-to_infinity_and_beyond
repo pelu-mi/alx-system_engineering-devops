@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Display lines containing the bash word to easily get the PID of Bash process
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
