@@ -2,6 +2,6 @@
 # Script to change ip addresses for facebook and localhost
 
 cp /etc/hosts ./hosts.new
-echo "127.0.0.2\tlocalhost/" > ./hosts.new
-echo "8.8.8.8\tfacebook.com/" >> ./hosts.new
+printf "127.0.0.2\tlocalhost/" > ./hosts.new
+printf "8.8.8.8\tfacebook.com/" >> ./hosts.new
 cp -f ./hosts.new /etc/hosts
