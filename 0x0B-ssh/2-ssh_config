@@ -1,3 +1,8 @@
-#!/usr/bin/env bash
-# Bash script to connect to ssh server using private key
-ssh ubuntu@3.94.211.137 -i ~/.ssh/school
+# SSH Config file
+Host *
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
