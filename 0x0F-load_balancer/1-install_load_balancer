@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Create a script to install and configure HAProxy on lb-01 server
+
+sudo apt-get -y update
+apt-get -y install haproxy
+
+# Fix config file
+server_config=\
+"
+frontend oluwapelumi-frontend
+        bind *:80
+        mode http
+        default_backend oluwapelumi-backend
+backend oluwapelumi-backend
+        balance roundrobin
+        server 63465-web-01 3.94.211.137 check
+        server 63465-web-02 54.237.207.59 check
+"
+
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# Allow haproxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+sudo service haproxy restart
