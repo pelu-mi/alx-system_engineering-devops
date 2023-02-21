@@ -13,8 +13,8 @@ frontend oluwapelumi-frontend
         default_backend oluwapelumi-backend
 backend oluwapelumi-backend
         balance roundrobin
-        server 63465-web-01 3.94.211.137 check
-        server 63465-web-02 54.237.207.59 check
+        server 63465-web-01 3.94.211.137:80 check
+        server 63465-web-02 54.237.207.59:80 check
 "
 
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
