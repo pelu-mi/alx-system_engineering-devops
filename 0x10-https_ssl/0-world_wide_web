@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Script to find out about a domain and its subdomain
+
+# In the function, $1 is the subdomain and $2 is the domain
+dig_url () {
+	rec=$(dig "$1.$2" | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | tr '\n' ' ' | tr -d ' ')
+	ip=$(dig "$1.$2" | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | tr '\n' ' ' | tr -d ' ')
+	echo "The subdomain $1 is a $rec record and points to $ip"
+}
+
+
+# $1 is domain and $2 is subdomain
+if [ "$2" ]
+then
+	dig_url "$2" "$1"
+else
+	dig_url "www" "$1"
+	dig_url "lb-01" "$1"
+	dig_url "web-01" "$1"
+	dig_url "web-02" "$1"
+fi
