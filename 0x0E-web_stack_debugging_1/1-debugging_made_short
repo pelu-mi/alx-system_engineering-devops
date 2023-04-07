@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Implement task 0 in 5 lines including killing the nginx process
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+service nginx restart
+pkill -o nginx
